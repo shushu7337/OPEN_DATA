@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/hospital.png" type="image/x-icon" />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/7b3164b4a9.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- animate.style -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- datatable -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.21/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.21/datatables.min.js"></script> -->
+    <!--  -->
+    <!-- custom css -->
+    <link rel="stylesheet" href="custom.css" />
+  </head>
+  <body>
+    <header id="shu">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.png" alt="新北市聯合醫院" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+              >
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section id="mc">
+      <div class="mcc card">
+        <div class="card-body">
+          <h4 class="card-title">新北市聯合醫院門診資訊</h4>
+          <p class="card-text">歡迎使用本查詢系統，欲得相關門診資訊請先選擇院區</p>
+          <select class="custom-select" id="sl">
+            <option selected>請選擇欲查詢院區</option>
+            <option value="1" id="bbb">板橋院區</option>
+            <option value="2" id="sss">三重院區</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section id="total_info">
+      <table id="total" class="table table-hover">
+        <h3>新北市聯合醫院門診資訊</h3>
+        <thead class="table-info">
+          <tr>
+            <th>院區</th>
+            <th>醫師代碼</th>
+            <th>午別編號</th>
+            <th>日期</th>
+            <th>科別代碼</th>
+            <!-- <th>產生檔案時間</th> -->
+            <th>科別名稱</th>
+            <th>醫師名稱</th>
+            <th>診間編號</th>
+          </tr>
+        </thead>
+        <tbody id="tb_total"></tbody>
+      </table>
+    </section>
+
+    <section id="san_info">
+      <div id="san" class="cd">
+        <div class="row row-cols-1 row-cols-md-3" id="tb_san"></div>
+      </div>
+    </section>
+
+    <section id="ban_info">
+      <div id="ban" class="cd">
+        <div class="row row-cols-1 row-cols-md-3" id="tb_ban"></div>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>
+
+<script>
+
+  // scroll spy
+  // $(window).scroll(() => {
+  //   spy(); // scroll spy
+  // });
+  // spy(); // scroll spy
+
+  // 兩院區資料
+  $.getJSON("total.php")
+    .done(function (ret) {
+      console.log(ret);
+      
+      let datat;
+      datat = ret;
+      let pkb=$("#sl")[0][1].innerHTML   //取得選項板橋院區
+      let pks=$("#sl")[0][2].innerHTML   //取得選項院區
+      let print = "";
+      $("#bbb").click(function(){
+
+        for (let i = 0; i < datat.length; i++) {
+          // console.log(i)
+          let row = datat[i];
+          if(datat[i].area == pk){
+            $("#mc").hide()
+            $("#total_info").show()
+
+            print += `
+                    <tr>						
+                      <th>${datat[i].area}</th>
+                      <th>${datat[i].DocCode}</th>
+                      <th>${datat[i].noon}</th>
+                      <th>${datat[i].depday}</th>
+                      <th>${datat[i].DepCode}</th>
+                      <th>${datat[i].depname}</th>
+                      <th>${datat[i].docname}</th>
+                      <th>${datat[i].room}</th>
+                    </tr> 
+                    `;
+          }
+      }
+      })
+
+     
+
+      $("#tb_total").html(print);
+      // $("#total").DataTable();
+    })
+    .fail(function (w) {
+      console.log("fail openapi");
+      console.log(w);
+    });
+
+  // 三重院區
+  $.getJSON("san.php")
+    .done(function (res) {
+      console.log(res);
+      let datas;
+      datas = res;
+      let print = "";
+      for (let i = 0; i < datas.length; i++) {
+        // console.log(i)
+        let datass = datas[i];
+        print += `
+      <div class="col mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">醫師:${datas[i].doctorName}</h5>
+            <p class="card-text">科別:${datas[i].roomName}-${datas[i].roomID}</p>
+            <p class="card-text">午別:${datas[i].noon}</p>
+            <p class="card-text">現在號碼:${datas[i].calledNo}</p>
+            <p class="card-text">總共號碼:${datas[i].calledMaxNo}</p>
+            <p class="card-text"><small class="text-muted float-right">${datas[i].publisher}</small></p>
+          </div>
+        </div> 
+      </div>
+    `;
+      }
+      $("#tb_san").html(print);
+      // $("#san").DataTable()
+    })
+    .fail(function (w) {
+      console.log("fail openapi");
+      console.log(w);
+    });
+
+  // 板橋院區
+  $.getJSON("ban.php")
+    .done(function (res) {
+      console.log(res);
+      let datas;
+      datas = res;
+      let print = "";
+      for (let i = 0; i < datas.length; i++) {
+        // console.log(i)
+        let datass = datas[i];
+        print += `					
+      <div class="col mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">醫師:${datas[i].doctorName}</h5>
+            <p class="card-text">科別:${datas[i].roomName}-${datas[i].roomID}</p>
+            <p class="card-text">午別:${datas[i].noon}</p>
+            <p class="card-text">現在號碼:${datas[i].calledNo}</p>
+            <p class="card-text">總共號碼:${datas[i].calledMaxNo}</p>
+            <p class="card-text"><small class="text-muted float-right">${datas[i].publisher}</small></p>
+          </div>
+        </div> 
+      </div>
+    `;
+      }
+      $("#tb_ban").html(print);
+      // $("#ban").DataTable();
+    })
+    .fail(function (w) {
+      console.log("fail openapi");
+      console.log(w);
+    });
+
+  // function spy() {
+  //   // animate
+  //   const element = document.querySelector(".card");
+    
+  //   let nowat = $(window).scrollTop();
+  //   $("section").each(function () {
+  //     console.log(nowat)
+  //     let id = $(this).attr("id"),
+  //       offset = $(this).offset().top - $("#shu").innerHeight(),
+  //       height = $(this).innerHeight();
+
+  //     if (offset <= nowat && nowat < offset + height) {
+  //       element.classList.add("animate__animated", "animate__fadeInUp");
+  //     }
+  //   });
+  // }
+</script>

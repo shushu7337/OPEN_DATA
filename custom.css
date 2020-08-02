@@ -1,0 +1,23 @@
+body{
+    margin:0;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #dddddd;
+}
+
+body section{
+    display:none;
+}
+
+#mc{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mcc{
+    width: 50%;
+    height: 300px;
+    bottom: 100px;
+}
