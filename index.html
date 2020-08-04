@@ -145,7 +145,45 @@
 
 <!-- Map -->
     <section id="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14456.824886131224!2d121.48225644604022!3d25.060998632270554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8e1dc56ba1d%3A0xf72a242b2fc09797!2z5paw5YyX5biC56uL6IGv5ZCI6Yar6Zmi5LiJ6YeN6Zmi5Y2A!5e0!3m2!1szh-TW!2stw!4v1596436669685!5m2!1szh-TW!2stw" width="400" height="250"></iframe>
+      <h2 class="mt-2 text-center">交通資訊</h2>
+
+      <div class="container">
+        <div class="row justify-content-md-between">
+          <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2149.0208533623622!2d121.48987863821525!3d25.060942955474125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8e1dc56ba1d%3A0xf72a242b2fc09797!2z5paw5YyX5biC56uL6IGv5ZCI6Yar6Zmi5LiJ6YeN6Zmi5Y2A!5e0!3m2!1szh-TW!2stw!4v1596523102747!5m2!1szh-TW!2stw" width="540" height="250"></iframe>
+          </div>
+
+          <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1074.8405372318973!2d121.45748787979959!3d25.023272632082328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a811dd0f4781%3A0x6e6c7698ec2e32d5!2z5paw5YyX5biC56uL6IGv5ZCI6Yar6Zmi5p2_5qmL6Zmi5Y2A!5e0!3m2!1szh-TW!2stw!4v1596523065496!5m2!1szh-TW!2stw" width="540" height="250"></iframe>
+          </div>
+
+          <div class="col-md-6 h4 text-center mt-2">三重院區<hr></div>
+          <div class="col-md-6 h4 text-center mt-2">板橋院區<hr></div>
+          <div class="col-md-6 h5">公車:</div>
+          <div class="col-md-6 h5">公車:</div>
+          <div class="col-md-6 text-muted text-small">
+            指南客運：1501(泰山─動物園)<br>
+            三重客運：857(板橋─淡海)、1209(北門─公西)<br>
+            新北市立聯合醫院三重院區站：520,617, 618 ,641<br>
+            聯營民營公車：捷運菜寮站或中山藝術公園站 ：14, 62,111（假日）,227, 264, 292, 616, 636,638,639,662,801,803.820.857,1209,1601,忠孝幹線<br>
+            
+          </div>
+          <div class="col-md-6 text-muted text-small">
+            臺北汽車客運658(行經長江路)：捷運西門站→ 小南門→ 龍山國中→ 捷運龍山寺站→ 中國時報→ 華江橋→ 江子翠→ 錦輝電纜→ 溪頭→ 聯邦新城→ 新海路→ 新埔國中→ 新北市立聯合醫院。 <br>
+
+            三重客運「淡水→板橋」：大漢橋 → 板橋陽明街 → 新海路 → 英士路(本院)中正路板橋新站再折返。<br>
+            
+            臺北汽車客運藍32：信義國小→ 信義公園→ 益華紡織→ 信義路→ 重慶國小→ 板橋後站→ 五權街口→ 壽德新村→ 重慶國中→ 廣福里→ 後埔國小→ 審計公廨→ 介壽公園→ 追風廣場→ 板橋公車站→ 新民里→ 漢生郵局→ 湯臣華廈→ 文德國小→ 新北市立聯合醫院 <br>
+            
+            臺北汽車客運橘五線 〈新埔捷運搭乘〉：捷運景安站→ 中興街口→ 板南路口→ 雙和醫院→ 平和路口→ 連城路口→ 中正路→ 平河里→ 中原村→ 中和稅捐→ 員山路口→ 正隆廣場→ 憲兵隊→ 中山路口→ 民生路橋→ 板橋花市→ 捷運新埔站→ 大漢橋→ 長江路口→ 聯邦新城→ 新海橋頭→ 新海路→ 新埔國中→ 新北市立聯合醫院<br>
+            
+          </div>
+          <div class="col-md-6 mt-2">捷運:</div>
+          <div class="col-md-6 mt-2">捷運:</div>
+          <div class="col-md-6 text-muted text-small">三重院區就診者可搭乘台北捷運「中和新蘆線」菜寮站3號出口</div>
+          <div class="col-md-6 text-muted text-small">板橋院區就診者可搭乘台北捷運「環狀線」大坪林3號出口</div>
+        </div>
+      </div>
     </section>
     <footer class="ff bg-secondary text-muted text-center py-2">
       <small class="text-light">資料來源:新北市政府資料開放平台
@@ -238,6 +276,7 @@
       $("#mss").click(function(){
         $("#total_info").hide();
         $("#mc").hide();
+        $("#map").hide();
         $("#ban_info").hide();
         $("#san_info").show();
       })
@@ -277,6 +316,7 @@
       $("#mbb").click(function(){
       $("#total_info").hide();
       $("#mc").hide();
+      $("#map").hide();
       $("#san_info").hide();
       $("#ban_info").show();
       })
