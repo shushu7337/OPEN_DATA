@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet" /><!-- font -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/><!-- bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/><!-- animate.style -->
+    <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/><!-- datatable -->
     <link rel="stylesheet" href="custom.css" /><!-- custom css -->
-
   </head>
   <body>
     <header id="shu">
@@ -58,7 +58,7 @@
     </header>
 
     <section id="mc">
-      <div class="mcc card">
+      <div class="mcc card wow fadeIn">
         <div class="card-body">
           <h4 class="card-title">新北市聯合醫院門診資訊</h4>
           <p class="card-text">歡迎使用本查詢系統，欲得相關門診資訊請先選擇院區</p>
@@ -156,17 +156,17 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script><!-- bootstrap -->
     <script src="https://kit.fontawesome.com/7b3164b4a9.js" crossorigin="anonymous"></script> <!-- fontawesome -->
+    <script src="wow.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script><!-- datatable -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script><!-- bootstrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script><!-- bootstrap -->
     <script>
-  
     // 兩院區門診資料
- 
+
   let datat;
   $.getJSON("total.php")
   .done(function (ret) {
-    // console.log(ret);
+    console.log(ret);
     
     datat = ret;
     let pkb=$("#sl")[0][1].innerHTML   //取得選項板橋院區
@@ -177,14 +177,14 @@
           if(datat[i].area == pkb){
             printa += `
                     <tr>						
-                      <td>${datat[i].area}</td>
-                      <td>${datat[i].DocCode}</td>
-                      <td>${datat[i].noon}</td>
-                      <td>${datat[i].depday}</td>
-                      <td>${datat[i].DepCode}</td>
-                      <td>${datat[i].depname}</td>
-                      <td>${datat[i].docname}</td>
-                      <td>${datat[i].room}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].area}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].DocCode}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].noon}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].depday}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].DepCode}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].depname}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].docname}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].room}</td>
                     </tr> 
                     `;
           write_timeb=`資料更新日期:${datat[i].writefiletime}`;
@@ -193,14 +193,14 @@
           }else if(datat[i].area == pks){
             printb += `
                     <tr>						
-                      <td>${datat[i].area}</td>
-                      <td>${datat[i].DocCode}</td>
-                      <td>${datat[i].noon}</td>
-                      <td>${datat[i].depday}</td>
-                      <td>${datat[i].DepCode}</td>
-                      <td>${datat[i].depname}</td>
-                      <td>${datat[i].docname}</td>
-                      <td>${datat[i].room}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].area}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].DocCode}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].noon}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].depday}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].DepCode}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].depname}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].docname}</td>
+                      <td class="wow fadeInLeft data-wow-delay="${i}s">${datat[i].room}</td>
                     </tr> 
                     `;
           write_times=`資料更新日期:${datat[i].writefiletime}`;
@@ -245,12 +245,12 @@
       datas = res;
       let print = "";
       for (let i = 0; i < datas.length; i++) {
-        // console.log(i)
+        console.log(i)
         let datass = datas[i];
         print += `
-      <div class="col mb-2">
+      <div class="col mb-4 wow fadeInUp data-wow-duration="${datas.length}s" data-wow-delay="${i}s"">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body ">
             <h5 class="card-title">醫師:${datas[i].doctorName}</h5>
             <p class="card-text">科別:${datas[i].roomName}-${datas[i].roomID}</p>
             <p class="card-text">午別:${datas[i].noon}</p>
@@ -284,10 +284,10 @@
       datas = res;
       let print = "";
       for (let i = 0; i < datas.length; i++) {
-        // console.log(i)
+        console.log(i)
         let datass = datas[i];
         print += `					
-      <div class="col mb-4">
+      <div class="col mb-4 wow fadeInUp data-wow-duration="${datas.length}s" data-wow-delay="${i}s"">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">醫師:${datas[i].doctorName}</h5>
@@ -302,6 +302,7 @@
     `;
       }
       $("#tb_ban").html(print);
+      
     })
     .fail(function (w) {
       console.log("fail openapi");
@@ -316,6 +317,8 @@
       $("#ban_info").hide();
       $("#map").show();
     })
+
+    new WOW().init();
     </script>
   </body>
 </html>
