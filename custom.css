@@ -50,3 +50,21 @@ section{
 #map{
     padding-bottom:0px;
 }
+
+#banq{
+    width:95%;
+    margin: auto;
+}
+
+#sanc{
+    width:95%;
+    margin: auto;
+}
+
+.nav-tabs .nav-link{
+    color:rgb(39, 153, 161);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    border-radius: 10px;
+}

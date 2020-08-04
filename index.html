@@ -77,15 +77,15 @@
         <hr>
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" data-id="1">板橋院區</a>
+            <a class="nav-link active" id="banq-tab" data-toggle="tab" href="#banq" role="tab" data-id="1">板橋院區</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" data-id="2">三重院區</a>
+            <a class="nav-link" id="sanc-tab" data-toggle="tab" href="#sanc" role="tab" data-id="2">三重院區</a>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
 
-          <div class="tab-pane fade show active" id="profile" role="tabpanel">
+          <div class="tab-pane fade show active" id="banq" role="tabpanel">
             <table id="totalb" class="table table-hover">
               <thead class="table-info">
                 <tr>
@@ -106,7 +106,7 @@
             </table>
           </div>
 
-          <div class="tab-pane fade" id="contact" role="tabpanel">
+          <div class="tab-pane fade" id="sanc" role="tabpanel">
             <table id="totals" class="table table-hover">
               <thead class="table-info">
                 <tr>
@@ -255,10 +255,10 @@
       }else if(location==2){
         $("#mc").hide();
         $("#total_info").show();
-        $("#profile").removeClass("active show");
-        $("#profile-tab").removeClass("active");
-        $("#contact").addClass("active show");
-        $("#contact-tab").addClass("active");
+        $("#banq").removeClass("active show");
+        $("#banq-tab").removeClass("active");
+        $("#sanc").addClass("active show");
+        $("#sanc-tab").addClass("active");
       }
     })
     $("#totalb").DataTable();
